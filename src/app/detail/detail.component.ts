@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })
-export class DetailComponent {
 
+//Create properties
+
+export class DetailComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  housingLocationId = 0;
+
+  //create method
+  constructor() {
+    this.housingLocationId = Number(this.route.snapshot.params['id']);
+  }
 }
