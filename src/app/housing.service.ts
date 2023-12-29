@@ -109,12 +109,17 @@ export class HousingService {
   ];
   constructor() { }
 
+  // Functions
+
   getAllHousingLocations(): HousingLocation [] {
     return this.housingLocationList;
   }
 
-  getHousingLocationById(id: Number): HousingLocation | 
-  undefined {
+  getHousingLocationById(id: Number): HousingLocation | undefined {
     return this.housingLocationList.find(housingLocation => housingLocation.id === id);
+  }
+
+  submitApplication(firstName: string, lastName: string, email: string) {
+    console.log(firstName, lastName, email);
   }
 }

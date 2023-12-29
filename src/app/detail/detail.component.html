@@ -6,7 +6,7 @@
             {{ housingLocation?.state }}
     </section>
     <section class="listing-description">
-        <h2 class="section-heading">About this housing location</h2>
+        <h2 class="section-heading">About this housing location:</h2>
         <ul>
             <li>
                 Units available: {{ housingLocation?.availableUnits }}
@@ -20,8 +20,22 @@
         </ul>
     </section>
     <section class="listing-apply">
-        <h2 class="section-heading">Apply now to live here</h2>
-        <button class="primary" type="button">Apply now!</button>
+        <h2 class="section-heading">Enquire now for this property!</h2>
+            
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+            <p><label for="first-name">First Name</label></p>
+            <input id="first-name" required type="text" placeholder="first name..." formControlName="firstName">
+            
+            <p><label for="last-name">Last Name</label></p>
+            <input id="last-name" type="text" placeholder="last name..." formControlName="lastName">
+            
+            <p><label for="email">Email</label></p>
+            <input id="email" type="text" placeholder="name@example.com" formControlName="email">
+            
+            <p>
+            <button type="submit" class="primary">Apply now</button>
+            </p>
+        </form>
     </section>
 
 </article>
